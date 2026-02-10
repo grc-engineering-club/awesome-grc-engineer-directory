@@ -39,7 +39,7 @@ jobs:
             fi
 
             # Extract frontmatter (between --- markers)
-            frontmatter=$(sed -n '/^---$/,/^---$/p' "$file" | sed '1d;$d')
+            frontmatter=$(awk 'BEGIN{c=0} /^---$/{c++;next} c==1' "$file")
 
             # Parse required fields
             name=$(echo "$frontmatter" | yq -r '.name // ""')

@@ -14,7 +14,9 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Install yq
-        run: sudo apt-get update && sudo apt-get install -y yq
+        run: |
+          sudo wget -qO /usr/local/bin/yq https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64
+          sudo chmod +x /usr/local/bin/yq
 
       - name: Validate submissions
         id: validate
@@ -29,15 +31,18 @@ jobs:
             filename=$(basename "$file" .md)
             echo "Validating: $file"
 
+            # Extract frontmatter (between first two --- markers only)
+            frontmatter=$(awk 'BEGIN{c=0} /^---$/{c++;next} c==1' "$file")
+
             # Check name field exists
-            name=$(yq e '.name' "$file" 2>/dev/null)
+            name=$(echo "$frontmatter" | yq e '.name' 2>/dev/null)
             if [ -z "$name" ] || [ "$name" = "null" ]; then
               echo "::error file=$file::Missing required field: name"
               ERROR_COUNT=$((ERROR_COUNT + 1))
             fi
 
             # Check github field exists
-            github=$(yq e '.github' "$file" 2>/dev/null)
+            github=$(echo "$frontmatter" | yq e '.github' 2>/dev/null)
             if [ -z "$github" ] || [ "$github" = "null" ]; then
               echo "::error file=$file::Missing required field: github"
               ERROR_COUNT=$((ERROR_COUNT + 1))
@@ -50,7 +55,7 @@ jobs:
             fi
 
             # Check specializations field exists and is non-empty
-            spec_count=$(yq e '.specializations | length' "$file" 2>/dev/null)
+            spec_count=$(echo "$frontmatter" | yq e '.specializations | length' 2>/dev/null)
             if [ "$spec_count" = "0" ] || [ -z "$spec_count" ]; then
               echo "::error file=$file::Missing required field: specializations (must be non-empty array)"
               ERROR_COUNT=$((ERROR_COUNT + 1))
@@ -58,7 +63,7 @@ jobs:
 
             # Non-blocking link validation (warnings only)
             for url_field in linkedin blog twitter; do
-              url=$(yq e ".$url_field" "$file" 2>/dev/null)
+              url=$(echo "$frontmatter" | yq e ".$url_field" 2>/dev/null)
               if [ -n "$url" ] && [ "$url" != "null" ]; then
                 if ! echo "$url" | grep -qE '^https?://'; then
                   echo "::warning file=$file::$url_field field is not a valid URL: $url"
