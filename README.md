@@ -31,6 +31,7 @@ A community-driven directory of Governance, Risk, and Compliance (GRC) engineers
 <!-- BEGIN_ENGINEER_LIST -->
 | Name | Specializations | Frameworks | Links |
 |------|-----------------|------------|-------|
+| **[Jonathan Perez](engineers/jlperez.md)** | GRC Engineering, Vulnerability Management Automation, Cloud Security, Compliance Automation |  | [GitHub](https://github.com/GRCJP) |
 | **[Brian Montiel](engineers/networkbm.md)** | Cloud Security, Compliance Automation, Offensive Security, Python & Rust | SOC 2, FedRAMP, GovRAMP | [GitHub](https://github.com/networkbm), [LinkedIn](https://www.linkedin.com/in/brian-montiel-95b38b239/), [Website](https://brianmontiel.netlify.app/) |
 <!-- END_ENGINEER_LIST -->
 
