@@ -30,6 +30,7 @@ layout: layouts/base.njk
   </div>
 
   <div class="profile-header">
+    <button class="profile-share-btn" onclick="var b=this;navigator.clipboard.writeText(window.location.href).then(function(){b.querySelector('span').textContent='Copied!';setTimeout(function(){b.querySelector('span').textContent='Share this profile'},2000)})"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg><span>Share this profile</span></button>
     <img
       src="https://github.com/{{ github }}.png?size=200"
       alt="{{ name }}"
@@ -48,11 +49,10 @@ layout: layouts/base.njk
           {% set val = socialData[social.key] %}
           {% if val or social.alwaysShow %}
             {% set href = social | socialUrl(val or github) %}
-            <a href="{{ href }}" target="_blank" rel="noopener" title="{{ social.label }}">{{ social.label }}</a>
+            <a href="{{ href }}" target="_blank" rel="noopener" title="{{ social.label }}">{{ social.icon | safe }} {{ social.label }}</a>
           {% endif %}
         {% endfor %}
       </div>
-      <button class="profile-share-btn" onclick="var b=this;navigator.clipboard.writeText(window.location.href).then(function(){b.textContent='Copied!';setTimeout(function(){b.textContent='Share Profile'},2000)})">Share Profile</button>
     </div>
   </div>
 
