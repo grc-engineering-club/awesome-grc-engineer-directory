@@ -72,4 +72,4 @@ I am passionate about learning and testing out new technologies in the field of 
 
 ## Get in Touch
 
-If you would like to discuss GRC Engineering, AI Risk, or Human Risk Management, feel free to reach out.
+If you would like to discuss GRC Engineering, AI Risk, or Human Risk Management, feel free to reach out using the contact form on my portfolio website.
