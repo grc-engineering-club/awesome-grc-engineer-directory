@@ -3,7 +3,6 @@
 
   var REPO_OWNER = 'grc-engineering-club';
   var REPO_NAME = 'grc-engineering-club.github.io';
-  var MAX_URL_LENGTH = 7500;
   var GH_USERNAME_RE = /^[a-zA-Z0-9]([a-zA-Z0-9-]{0,37}[a-zA-Z0-9])?$/;
 
   // Post-submission confirmation
@@ -452,41 +451,17 @@
   submitBtn && submitBtn.addEventListener('click', function () {
     var d = getFormData();
     var markdown = generateMarkdown();
-    var filename = 'engineers/' + d.github + '.md';
-    var baseUrl = 'https://github.com/' + REPO_OWNER + '/' + REPO_NAME + '/new/main/?filename=' + encodeURIComponent(filename);
-    var fullUrl = baseUrl + '&value=' + encodeURIComponent(markdown);
+    var issueTitle = 'New Profile: ' + d.github;
+    var issueBody = '<!-- PROFILE_SUBMISSION -->\n```yaml\n' + markdown + '```';
+    var issueUrl = 'https://github.com/' + REPO_OWNER + '/' + REPO_NAME + '/issues/new'
+      + '?title=' + encodeURIComponent(issueTitle)
+      + '&body=' + encodeURIComponent(issueBody)
+      + '&labels=' + encodeURIComponent('profile-submission');
 
-    if (fullUrl.length <= MAX_URL_LENGTH) {
-      window.open(fullUrl, '_blank');
-      // Mark current page as submitted so returning shows success
-      if (window.history.replaceState) {
-        window.history.replaceState(null, '', window.location.pathname + '?submitted=1');
-      }
-    } else {
-      // Clipboard fallback
-      navigator.clipboard.writeText(markdown).then(function () {
-        $('#submit-fallback').hidden = false;
-        submitBtn.hidden = true;
-      }).catch(function () {
-        // If clipboard fails, try textarea fallback
-        var ta = document.createElement('textarea');
-        ta.value = markdown;
-        document.body.appendChild(ta);
-        ta.select();
-        document.execCommand('copy');
-        document.body.removeChild(ta);
-        $('#submit-fallback').hidden = false;
-        submitBtn.hidden = true;
-      });
+    window.open(issueUrl, '_blank');
+    if (window.history.replaceState) {
+      window.history.replaceState(null, '', window.location.pathname + '?submitted=1');
     }
-  });
-
-  var fallbackBtn = $('#btn-open-github-fallback');
-  fallbackBtn && fallbackBtn.addEventListener('click', function () {
-    var d = getFormData();
-    var filename = 'engineers/' + d.github + '.md';
-    var url = 'https://github.com/' + REPO_OWNER + '/' + REPO_NAME + '/new/main/?filename=' + encodeURIComponent(filename);
-    window.open(url, '_blank');
   });
 
   // --- Utilities ---
