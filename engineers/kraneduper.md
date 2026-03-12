@@ -14,6 +14,7 @@ specializations:
 title: Security Consultant
 location: London, United Kingdom
 linkedin: https://www.linkedin.com/in/folajimi-falusi/
+blog: https://medium.com/@kranduper
 frameworks:
   - ISO 27001
   - NIST 800-53
@@ -28,6 +29,13 @@ certifications:
   - CCSP
   - CEH
   - eJPT
+available_for:
+  - consulting
+  - hiring
+projects:
+  - name: AWS S3 Compliance Checker
+    url: https://github.com/kraneduper/s3-compliance-checker
+    description: An AWS Config custom rule Lambda function that evaluates S3 buckets for compliance with organizational policies. This rule checks that all S3 buckets have proper tagging (Owner tag) and public access blocking configured.
 ---
 
 ## About Me
