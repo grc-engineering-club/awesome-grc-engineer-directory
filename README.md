@@ -2,7 +2,7 @@
 
 A community-driven directory of Governance, Risk, and Compliance (GRC) engineers.
 
-**[Browse the Directory](https://grc-engineering-club.github.io/)** — search by specialization, framework, language, and availability.
+**[Browse the Directory](https://directory.grcengclub.com/)** — search by specialization, framework, language, and availability.
 
 ## Engineers
 
@@ -36,7 +36,7 @@ A community-driven directory of Governance, Risk, and Compliance (GRC) engineers
 
 ## Add Yourself
 
-The easiest way is to use the **[submission form](https://grc-engineering-club.github.io/submit/)** on the site — it walks you through creating your profile and opens a PR automatically.
+The easiest way is to use the **[submission form](https://directory.grcengclub.com/submit/)** on the site — it walks you through creating your profile and opens a PR automatically.
 
 You can also fork this repo, copy `engineers/_template.md` to `engineers/{your-github-username}.md`, fill it out, and submit a PR. See [CONTRIBUTING.md](CONTRIBUTING.md) for details.
 

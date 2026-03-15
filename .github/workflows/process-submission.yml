@@ -28,7 +28,7 @@ jobs:
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 issue_number: issue.number,
-                body: '❌ Could not parse profile content from this issue. Please use the [submission form](https://grc-engineering-club.github.io/submit/) to resubmit.'
+                body: '❌ Could not parse profile content from this issue. Please use the [submission form](https://directory.grcengclub.com/submit/) to resubmit.'
               });
               await github.rest.issues.update({
                 owner: context.repo.owner,
@@ -48,7 +48,7 @@ jobs:
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 issue_number: issue.number,
-                body: '❌ Could not find a valid `github` username in the profile. Please resubmit using the [submission form](https://grc-engineering-club.github.io/submit/).'
+                body: '❌ Could not find a valid `github` username in the profile. Please resubmit using the [submission form](https://directory.grcengclub.com/submit/).'
               });
               await github.rest.issues.update({
                 owner: context.repo.owner,

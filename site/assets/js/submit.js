@@ -1,8 +1,8 @@
 (function () {
   'use strict';
 
-  var REPO_OWNER = 'grc-engineering-club';
-  var REPO_NAME = 'grc-engineering-club.github.io';
+  var REPO_OWNER = 'GRCEngClub';
+  var REPO_NAME = 'directory';
   var GH_USERNAME_RE = /^[a-zA-Z0-9]([a-zA-Z0-9-]{0,37}[a-zA-Z0-9])?$/;
 
   // Post-submission confirmation
