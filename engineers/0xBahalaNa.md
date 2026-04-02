@@ -9,8 +9,12 @@ languages:
   - Python
   - Bash
 
+title: GRC Engineer
+location: California
+
 linkedin: https://linkedin.com/in/luigi-carpio
 blog: https://medium.com/@0xBahalaNa
+credly: https://www.credly.com/users/luigi-carpio/badges
 
 frameworks:
   - CJIS
