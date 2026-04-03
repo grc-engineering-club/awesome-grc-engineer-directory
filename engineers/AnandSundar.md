@@ -24,7 +24,6 @@ company: "LOG(N) Pacific"
 location: "United States and Canada"
 linkedin: "https://www.linkedin.com/in/anandsundar96/"
 twitter: "@AnandSundar96"
-bluesky: "yourname.bsky.social"
 credly: "https://www.credly.com/users/anand-sundar/badges"
 
 frameworks:
@@ -53,7 +52,6 @@ frameworks:
 - "NIST CSF"
 - "NIST RMF"
 - "PCI-DSS"
-- "SOC 2"
 - "StateRAMP"
 
 languages:
@@ -65,10 +63,8 @@ languages:
   - "OPA/Rego"
   - "OSCAL"
   - "PowerShell"
-  - "Python"
   - "Rust"
   - "SQL"
-  - "Terraform"
   - "React 18"
   - "PHP"
   - "TypeScript"
