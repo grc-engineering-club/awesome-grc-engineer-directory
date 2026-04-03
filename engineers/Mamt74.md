@@ -1,0 +1,37 @@
+---
+name: "Mamta Sakuja"
+github: "Mamt74"
+specializations:
+  - "Audit & Assurance"
+  - "Cloud Security"
+  - "Security Governance"
+  - "AI Governance"
+  - "Cloud Governance"
+title: "GRC leader"
+company: "Oracle"
+location: "Sacramento"
+linkedin: "https://www.linkedin.com/in/mamta-s-16ab287"
+frameworks:
+  - "FedRAMP"
+  - "GovRAMP"
+  - "HIPAA"
+  - "HITRUST"
+  - "ISO 27001"
+  - "ISO 27017"
+  - "ISO 27018"
+  - "NIST 800-53"
+  - "NIST 800-171"
+  - "NIST CSF"
+  - "NIST RMF"
+  - "PCI-DSS"
+  - "SOC 2"
+  - "StateRAMP"
+certifications:
+  - "CDPSE"
+  - "CISSP"
+  - "CISM"
+  - "PMP"
+  - "HITRUST CCSFP"
+available_for:
+  - "collaboration"
+---
