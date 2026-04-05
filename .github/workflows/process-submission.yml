@@ -1,0 +1,199 @@
+name: Process Profile Submission
+
+on:
+  issues:
+    types: [opened, reopened]
+
+jobs:
+  process:
+    # Trigger on issues that look like profile submissions
+    if: startsWith(github.event.issue.title, 'New Profile:')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+    steps:
+      - name: Process submission and create PR
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const issue = context.payload.issue;
+            const body = issue.body || '';
+
+            // --- Extract markdown from code fence ---
+            const match = body.match(/<!-- PROFILE_SUBMISSION -->\s*```yaml\n([\s\S]*?)```/);
+            if (!match) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                body: '❌ Could not parse profile content from this issue. Please use the [submission form](https://directory.grcengclub.com/submit/) to resubmit.'
+              });
+              await github.rest.issues.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                state: 'closed',
+                state_reason: 'not_planned'
+              });
+              return;
+            }
+            const content = match[1];
+
+            // --- Parse required fields from YAML frontmatter ---
+            const ghMatch = content.match(/^github:\s*"([^"]+)"/m);
+            if (!ghMatch) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                body: '❌ Could not find a valid `github` username in the profile. Please resubmit using the [submission form](https://directory.grcengclub.com/submit/).'
+              });
+              await github.rest.issues.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                state: 'closed',
+                state_reason: 'not_planned'
+              });
+              return;
+            }
+            const username = ghMatch[1];
+
+            const nameMatch = content.match(/^name:\s*"([^"]+)"/m);
+            const profileName = nameMatch ? nameMatch[1] : username;
+
+            // --- Reject placeholder/template submissions ---
+            const placeholders = [
+              'your-github-username',
+              'Your Full Name',
+              'YOUR-GITHUB-USERNAME',
+            ];
+            if (placeholders.includes(username) || placeholders.includes(profileName)) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                body: '❌ This submission still contains placeholder values from the template. Please fill in your actual name and GitHub username, then resubmit using the [submission form](https://directory.grcengclub.com/submit/).'
+              });
+              await github.rest.issues.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                state: 'closed',
+                state_reason: 'not_planned'
+              });
+              return;
+            }
+
+            const filename = `engineers/${username}.md`;
+
+            // --- Label the issue for bookkeeping ---
+            try {
+              await github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                labels: ['profile-submission']
+              });
+            } catch (e) {
+              // Label may not exist yet — not critical
+            }
+
+            // --- Check if profile already exists ---
+            try {
+              await github.rest.repos.getContent({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                path: filename,
+                ref: 'main'
+              });
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                body: `⚠️ A profile for **@${username}** already exists. If you'd like to update it, please open a pull request editing \`${filename}\` directly.`
+              });
+              await github.rest.issues.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                state: 'closed',
+                state_reason: 'completed'
+              });
+              return;
+            } catch (e) {
+              if (e.status !== 404) throw e;
+              // File doesn't exist — proceed
+            }
+
+            // --- Create branch ---
+            const mainRef = await github.rest.git.getRef({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              ref: 'heads/main'
+            });
+
+            const branchName = `profile/${username}`;
+            try {
+              await github.rest.git.createRef({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                ref: `refs/heads/${branchName}`,
+                sha: mainRef.data.object.sha
+              });
+            } catch (e) {
+              if (e.status === 422) {
+                // Branch already exists — delete and recreate
+                await github.rest.git.deleteRef({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  ref: `heads/${branchName}`
+                });
+                await github.rest.git.createRef({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  ref: `refs/heads/${branchName}`,
+                  sha: mainRef.data.object.sha
+                });
+              } else {
+                throw e;
+              }
+            }
+
+            // --- Create file on branch ---
+            await github.rest.repos.createOrUpdateFileContents({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              path: filename,
+              message: `Add profile: ${profileName} (@${username})`,
+              content: Buffer.from(content).toString('base64'),
+              branch: branchName
+            });
+
+            // --- Open PR ---
+            const pr = await github.rest.pulls.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `Add profile: ${profileName} (@${username})`,
+              head: branchName,
+              base: 'main',
+              body: `Automated PR from #${issue.number}\n\nAdds engineer directory profile for @${username}.`
+            });
+
+            // --- Comment with PR link and close issue ---
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issue.number,
+              body: `✅ Your profile PR has been created: ${pr.data.html_url}\n\nA maintainer will review and merge it shortly!`
+            });
+
+            await github.rest.issues.update({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issue.number,
+              state: 'closed',
+              state_reason: 'completed'
+            });

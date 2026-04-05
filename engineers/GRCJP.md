@@ -1,38 +1,33 @@
 ---
-# REQUIRED FIELDS
 name: Jonathan Perez
 github: GRCJP
 specializations:
-  - GRC Engineering
-  - Vulnerability Management Automation
+  - Vulnerability Management
   - Cloud Security
   - Compliance Automation
+languages:
+  - Python
 
-# OPTIONAL FIELDS - Remove or leave blank if not applicable
 title: Senior Cybersecurity Specialist, GRC Engineer
 company: Assurit
 location: Virginia, USA
 
-# Social Links (optional)
 linkedin: https://www.linkedin.com/in/cyberjp/
-twitter: ""
 blog: https://securitybyjp.com/
 
-# Frameworks you work with (optional)
 frameworks:
   - NIST RMF
   - NIST CSF
-  - NIST 800-53 Rev 5
+  - NIST 800-53
   - FedRAMP
   - SOC 2
   - ISO 27001
-  - IRS PUB 1075
+  - IRS Pub 1075
   - COBIT
-  - GAO Greenbook
+  - GAO Green Book
   - CMS ARC-AMPE
-  - CMMC 2.0
+  - CMMC
 
-# Professional certifications (optional)
 certifications:
   - CISSP
   - CISM
@@ -46,15 +41,12 @@ certifications:
   - CISA HVA Technical Lead
   - CISA HVA Assessment Lead
 
-# What you're available for (optional)
-# Options: mentoring, speaking, consulting, open-source, hiring, freelance, collaboration
 available_for:
   - open-source
   - consulting
   - hiring
   - collaboration
 
-# Notable projects (optional)
 projects:
   - name: POA&M Manager – Nexus
     url: https://securitybyjp.com/

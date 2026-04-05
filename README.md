@@ -1,71 +1,66 @@
-# Awesome GRC Engineer Directory
+# GRC Engineering Club
 
-A community-driven directory of Governance, Risk, and Compliance (GRC) engineers. Find experts, connect with peers, and showcase your expertise.
+A community-driven directory of Governance, Risk, and Compliance (GRC) engineers.
 
-## Browse the Directory
-
-### By Specialization
-
-- **Cloud Security** - Securing cloud infrastructure and services
-- **Compliance Automation** - Automating compliance workflows and controls
-- **Risk Management** - Enterprise risk assessment and mitigation
-- **Security Governance** - Policy development and security program management
-- **Audit & Assurance** - Internal/external audit and control testing
-- **Third-Party Risk** - Vendor and supply chain risk management
-- **Privacy** - Data privacy and protection programs
-
-### By Framework
-
-- **SOC 2** - Service Organization Control
-- **FedRAMP** - Federal Risk and Authorization Management Program
-- **ISO 27001** - Information Security Management
-- **HIPAA** - Health Insurance Portability and Accountability Act
-- **PCI-DSS** - Payment Card Industry Data Security Standard
-- **NIST** - National Institute of Standards and Technology frameworks
-- **GDPR** - General Data Protection Regulation
-- **CMMC** - Cybersecurity Maturity Model Certification
-- **StateRAMP** - State Risk and Authorization Management Program
+**[Browse the Directory](https://directory.grcengclub.com/)** — search by specialization, framework, language, and availability.
 
 ## Engineers
 
 <!-- BEGIN_ENGINEER_LIST -->
 | Name | Specializations | Frameworks | Links |
 |------|-----------------|------------|-------|
-| **[Luigi Carpio](engineers/0xBahalaNa.md)** | GRC Engineering, Compliance Automation, Cloud Security, Identity Engineering (IAM/IGA) | CJIS Security Policy v6.0, FedRAMP (High baseline), NIST 800-53 Rev 5 | [GitHub](https://github.com/0xBahalaNa), [LinkedIn](https://linkedin.com/in/luigi-carpio) |
-| **[Jonathan Perez](engineers/GRCJP.md)** | GRC Engineering, Vulnerability Management Automation, Cloud Security, Compliance Automation | NIST RMF, NIST CSF, NIST 800-53 Rev 5, FedRAMP, SOC 2, ISO 27001, IRS PUB 1075, COBIT, GAO Greenbook, CMS ARC-AMPE, CMMC 2.0 | [GitHub](https://github.com/GRCJP), [LinkedIn](https://www.linkedin.com/in/cyberjp/) |
-| **[Brian Montiel](engineers/networkbm.md)** | Cloud Security, Compliance Automation, Offensive Security, Python & Rust | SOC 2, FedRAMP, GovRAMP | [GitHub](https://github.com/networkbm), [LinkedIn](https://www.linkedin.com/in/brian-montiel-95b38b239/), [Website](https://brianmontiel.netlify.app/) |
+| **[Luigi Carpio](engineers/0xBahalaNa.md)** | Compliance Automation, Cloud Security, Identity & Access Management | CJIS, FedRAMP, NIST 800-53, NIST CSF | [GitHub](https://github.com/0xBahalaNa), [LinkedIn](https://linkedin.com/in/luigi-carpio) |
+| **[Anand Sundar](engineers/AnandSundar.md)** | Cloud Security, Audit & Assurance, Compliance Automation, Identity & Access Management, Incident Response, Offensive Security, Privacy, Risk Management, Security Architecture, Security Governance, Security Operations, Third-Party Risk, Vulnerability Management | SOC 2, FedRAMP, CCPA, CJIS, CMMC, CMS ARC-AMPE, COBIT, CSA STAR, EU AI Act, GAO Green Book, GDPR, GovRAMP, HIPAA, HITRUST, IRS Pub 1075, ISO 27001, ISO 27017, ISO 27018, ISO 42001, NIST 800-53, NIST 800-171, NIST AI RMF, NIST CSF, NIST RMF, PCI-DSS, StateRAMP | [GitHub](https://github.com/AnandSundar), [LinkedIn](https://www.linkedin.com/in/anandsundar96/) |
+| **[Omiodjo Donadje](engineers/FideleDonadje.md)** | Cloud Security, Compliance Automation, Security Architecture | NIST 800-53, NIST CSF | [GitHub](https://github.com/FideleDonadje), [LinkedIn](https://www.linkedin.com/in/fdonadje/), [Website](https://omiodjo-donadje.com/) |
+| **[Jonathan Perez](engineers/GRCJP.md)** | Vulnerability Management, Cloud Security, Compliance Automation | NIST RMF, NIST CSF, NIST 800-53, FedRAMP, SOC 2, ISO 27001, IRS Pub 1075, COBIT, GAO Green Book, CMS ARC-AMPE, CMMC | [GitHub](https://github.com/GRCJP), [LinkedIn](https://www.linkedin.com/in/cyberjp/) |
+| **[Jessica Barnwell](engineers/Gorg-jess32.md)** | Audit & Assurance, Cloud Security, Compliance Automation, Identity & Access Management, Incident Response, Risk Management, Security Operations | HIPAA, HITRUST, ISO 27001, NIST 800-53, NIST 800-171 | [GitHub](https://github.com/Gorg-jess32), [LinkedIn](https://www.linkedin.com/in/jessicabarnwell/) |
+| **[John Bommeraveni Joseph](engineers/Johnbjoseph-cybersec.md)** | Audit & Assurance, Compliance Automation, Identity & Access Management, Privacy, Risk Management, Security Governance, Third-Party Risk, Vulnerability Management, AI Governance, Cloud Governance | GDPR, HIPAA, ISO 27001, ISO 42001, NIST AI RMF, NIST CSF, NIST RMF, PCI-DSS, SOC 2 | [GitHub](https://github.com/Johnbjoseph-cybersec), [LinkedIn](https://www.linkedin.com/in/john-bj/) |
+| **[Sharaden Cole](engineers/Lokage7.md)** | Audit & Assurance, Cloud Security, Compliance Automation, Identity & Access Management, Privacy, Risk Management, Security Architecture, Security Governance, Third-Party Risk | FedRAMP, HIPAA, HITRUST, ISO 27001, NIST 800-53, NIST 800-171, NIST CSF, NIST RMF, PCI-DSS, SOC 2 | [GitHub](https://github.com/Lokage7), [LinkedIn](https://www.linkedin.com/in/sharadencole) |
+| **[Mamta Sakuja](engineers/Mamt74.md)** | Audit & Assurance, Cloud Security, Security Governance, AI Governance, Cloud Governance | FedRAMP, GovRAMP, HIPAA, HITRUST, ISO 27001, ISO 27017, ISO 27018, NIST 800-53, NIST 800-171, NIST CSF, NIST RMF, PCI-DSS, SOC 2, StateRAMP | [GitHub](https://github.com/Mamt74), [LinkedIn](https://www.linkedin.com/in/mamta-s-16ab287) |
+| **[MaryAnna Moore](engineers/MaryAnnaMoore07.md)** | Identity & Access Management, Incident Response, Security Operations, Vulnerability Management | GDPR, HIPAA, NIST 800-53, NIST 800-171, NIST RMF, PCI-DSS, SOC 2 | [GitHub](https://github.com/MaryAnnaMoore07), [LinkedIn](https://www.linkedin.com/in/maryanna-moore/) |
+| **[Orlando Pizarro](engineers/Orlando-GRCengineer.md)** | Audit & Assurance, Compliance Automation, Risk Management, Security Governance, AI Governance, Cloud Governance | CMMC, FedRAMP, NIST 800-53, NIST 800-171, NIST AI RMF, NIST CSF, NIST RMF | [GitHub](https://github.com/Orlando-GRCengineer), [LinkedIn](https://www.linkedin.com/in/orlando-pizarro-851b12357/) |
+| **[Steven Smith](engineers/SmittyStuff.md)** | Privacy, Risk Management, Security Architecture, Security Governance, Data Protection, Encryption & Masking | CMMC, HIPAA, HITRUST, ISO 27001, NIST 800-53, NIST 800-171, NIST CSF, NIST RMF, PCI-DSS, SOC 2 | [GitHub](https://github.com/SmittyStuff), [LinkedIn](https://www.linkedin.com/in/steven-smith-itnet/) |
+| **[Toyeeb Atanda](engineers/Toyeeb29.md)** | AI Governance, Audit & Assurance, Cloud Security, Compliance Automation, DevSecOps, Identity & Access Management, Privacy, Risk Management, Security Governance, Third-Party Risk | CMMC, COBIT, EU AI Act, FedRAMP, GDPR, HIPAA, HITRUST, ISO 27001, ISO 42001, NIST 800-53, NIST 800-171, NIST AI RMF, NIST CSF, NIST RMF, PCI-DSS, SOC 2 | [GitHub](https://github.com/Toyeeb29), [LinkedIn](https://www.linkedin.com/in/toyeeb-atanda/) |
+| **[Tynesha Cross](engineers/Tynesha813.md)** | Audit & Assurance, Compliance Automation, Identity & Access Management, Risk Management, Security Governance, Third-Party Risk | GDPR, HIPAA, ISO 27001, ISO 27017, NIST 800-53, NIST AI RMF, NIST CSF, NIST RMF, PCI-DSS, SOC 2 | [GitHub](https://github.com/Tynesha813), [LinkedIn](https://linkedin.com/in/tyneshacross) |
+| **[Zahid Kamil](engineers/ZahidKamil.md)** | Cloud Security, Compliance Automation, Risk Management, Security Governance | CJIS, CMS ARC-AMPE, IRS Pub 1075, NIST 800-53 | [GitHub](https://github.com/ZahidKamil), [LinkedIn](https://linkedin.com/in/zahid-kamil) |
+| **[Akeem Williams](engineers/ajwill85.md)** | Compliance Automation, Cloud Security, Risk Management, Audit & Assurance, Third-Party Risk, Privacy | ISO 27001, SOC 2, PCI-DSS, NIST CSF, NIST RMF, NIST 800-53, GDPR, CCPA, HIPAA, ISO 42001, NIST AI RMF, EU AI Act | [GitHub](https://github.com/ajwill85) |
+| **[AJ Yawn](engineers/ajy0127.md)** | Audit & Assurance, Cloud Security, Compliance Automation, Risk Management, Security Governance, AI Governance | CCPA, CSA STAR, FedRAMP, HIPAA, HITRUST, ISO 27001, ISO 27017, ISO 27018, ISO 42001, NIST 800-53, NIST 800-171, NIST AI RMF, NIST CSF, NIST RMF, SOC 2 | [GitHub](https://github.com/ajy0127), [LinkedIn](https://www.linkedin.com/in/ajyawn/) |
+| **[ANDERSON ANTHONY](engineers/andersonjanthony.md)** | Cloud Security, Compliance Automation, Identity & Access Management, Incident Response, Privacy, Risk Management, Security Architecture, Security Governance, Third-Party Risk, Cloud Governance, Salesforce Security, Salesforce Compliance | GDPR, HIPAA, ISO 27001, NIST 800-53, NIST CSF, NIST RMF, SOC 2 | [GitHub](https://github.com/andersonjanthony), [LinkedIn](https://www.linkedin.com/in/andersonjanthony/) |
+| **[Angeline Williams](engineers/angie-in-the-cloud.md)** | Audit & Assurance, Cloud Security, Compliance Automation, Privacy, Risk Management, Security Governance, Third-Party Risk | GDPR, ISO 27001, ISO 42001, NIST 800-53, NIST CSF, PCI-DSS, SOC 2 | [GitHub](https://github.com/angie-in-the-cloud), [LinkedIn](https://www.linkedin.com/in/angeline-williams/) |
+| **[Ashley Pearce](engineers/ashpearce.md)** | Compliance Automation, Risk Management, Security Governance | CMMC, FedRAMP, GovRAMP, ISO 27001, NIST 800-53, NIST 800-171, NIST AI RMF, NIST CSF, NIST RMF | [GitHub](https://github.com/ashpearce), [LinkedIn](https://www.linkedin.com/in/ashley-pearce/) |
+| **[Arian Sheremeti](engineers/bitsecura.md)** | Audit & Assurance, Cloud Security, Incident Response, Offensive Security, Risk Management, Security Architecture, Security Governance, Security Operations, Third-Party Risk, Vulnerability Management, AI Governance, Cloud Governance | COBIT, CSA STAR, EU AI Act, ISO 27001, ISO 42001, NIST 800-53, NIST AI RMF, NIST CSF, NIST RMF, PCI-DSS, SOC 2 | [GitHub](https://github.com/bitsecura), [LinkedIn](https://www.linkedin.com/in/ariansh/) |
+| **[James Gilchrest](engineers/cybergilly.md)** | Security Operations, Risk Management, Security Governance | NIST 800-53, CMMC | [GitHub](https://github.com/cybergilly), [LinkedIn](https://www.linkedin.com/in/gilly-ak/) |
+| **[Debjyoti Mukherjee](engineers/debjym.md)** | Cloud Governance, Cloud Security, Compliance Automation, Risk Management, Security Governance | CSA STAR, EU AI Act, FedRAMP, ISO 27001, ISO 42001, NIST 800-53, NIST AI RMF, NIST CSF, NIST RMF | [GitHub](https://github.com/debjym), [LinkedIn](https://linkedin.com/in/debjyotimukherjeeleeds) |
+| **[Dex-Xavier Copeland](engineers/dexcopeland.md)** | Cloud Security, Compliance Automation | IRS Pub 1075, NIST 800-53, NIST CSF, NIST RMF, NIST AI RMF, ISO 27001, ISO 42001 | [GitHub](https://github.com/dexcopeland), [LinkedIn](https://linkedin.com/in/dexcopeland), [Website](https://copeuccino.com/) |
+| **[Danielle Koppel](engineers/dlk02191.md)** | Audit & Assurance, Privacy, Risk Management, Security Architecture, Security Governance, Security Operations, Third-Party Risk, Vulnerability Management | HIPAA, HITRUST, NIST 800-53, NIST RMF, PCI-DSS | [GitHub](https://github.com/dlk02191), [LinkedIn](https://www.linkedin.com/in/daniellekoppel) |
+| **[Ethan Troy](engineers/ethanolivertroy.md)** | Compliance Automation, Cloud Security, Security Architecture, Offensive Security | FedRAMP, NIST 800-53, NIST CSF, SOC 2, CMMC | [GitHub](https://github.com/ethanolivertroy), [LinkedIn](https://www.linkedin.com/in/ethantroy/) |
+| **[Garima Kakkar](engineers/garimakakkar.md)** | Audit & Assurance, Compliance Automation, Privacy, Risk Management, Security Governance, Third-Party Risk, AI Governance, Cloud Governance | CCPA, EU AI Act, GDPR, ISO 27001, ISO 42001, NIST 800-53, NIST AI RMF, SOC 2 | [GitHub](https://github.com/garimakakkar), [LinkedIn](https://www.linkedin.com/in/garima-kakkar-54456b60/) |
+| **[Gregory Wilson](engineers/gregorywilsonjr.md)** | Audit & Assurance, Cloud Security, Compliance Automation, Identity & Access Management, Security Architecture, Security Operations, Vulnerability Management, DevSecOps, Zero-Touch Compliance | CSA STAR, ISO 27001, NIST 800-53, PCI-DSS | [GitHub](https://github.com/gregorywilsonjr), [LinkedIn](https://www.linkedin.com/in/gregorywilsonjr) |
+| **[Pradeep Reddy](engineers/iampradeeprs.md)** | Audit & Assurance, Compliance Automation, Risk Management, Security Governance, Third-Party Risk, AI Governance, Cloud Governance | FedRAMP, GDPR, HIPAA, HITRUST, ISO 27001, ISO 42001, NIST 800-53, NIST 800-171, NIST AI RMF, NIST CSF, NIST RMF, PCI-DSS, SOC 2, StateRAMP | [GitHub](https://github.com/iampradeeprs), [LinkedIn](https://www.linkedin.com/in/infosecpradeep/) |
+| **[Jonathan Steward](engineers/jonathansteward.md)** | Audit & Assurance, Compliance Automation, Risk Management, Third-Party Risk, AI Governance | ISO 27001, NIST CSF, NIST RMF, SOC 2 | [GitHub](https://github.com/jonathansteward), [LinkedIn](https://www.linkedin.com/in/jonathansteward97) |
+| **[Kyle Cain](engineers/kfcain.md)** | Cloud Security, Compliance Automation, Identity & Access Management, Risk Management, Security Architecture, Security Governance, Security Operations, Third-Party Risk, Vulnerability Management | CMMC, FedRAMP, GovRAMP, ISO 27001, ISO 42001, NIST 800-53, NIST 800-171 | [GitHub](https://github.com/kfcain), [LinkedIn](https://www.linkedin.com/in/kylecain) |
+| **[Fola Falusi](engineers/kraneduper.md)** | Audit & Assurance, Cloud Security, Compliance Automation, Offensive Security, Risk Management, Security Architecture, Security Governance, Security Operations, Vulnerability Management | ISO 27001, NIST 800-53, NIST CSF, NIST RMF, PCI-DSS | [GitHub](https://github.com/kraneduper), [LinkedIn](https://www.linkedin.com/in/folajimi-falusi/) |
+| **[Laithe Jamal Reece](engineers/laithjreece-svg.md)** | Compliance Automation, Risk Management, Third-Party Risk | NIST 800-53, NIST RMF, PCI-DSS | [GitHub](https://github.com/laithjreece-svg), [LinkedIn](https://www.linkedin.com/in/laithreece/) |
+| **[Nelson Rosario](engineers/nelsonrosario89.md)** | Audit & Assurance, Cloud Security, Compliance Automation, Identity & Access Management, Risk Management, Security Governance | ISO 27001, ISO 42001, NIST 800-53, PCI-DSS, SOC 2 | [GitHub](https://github.com/nelsonrosario89), [LinkedIn](https://www.linkedin.com/in/nelson-rosario-16b99684/) |
+| **[Brian Montiel](engineers/networkbm.md)** | Cloud Security, Compliance Automation, Offensive Security | SOC 2, FedRAMP, GovRAMP, NIST 800-53 | [GitHub](https://github.com/networkbm), [LinkedIn](https://www.linkedin.com/in/brian-montiel-95b38b239/), [Website](https://brianmontiel.netlify.app/) |
+| **[Robert E. Wiley Jr.](engineers/robertwiley-grc.md)** | Risk Management, Security Governance, Third-Party Risk | CJIS, CMMC, FedRAMP, GovRAMP, IRS Pub 1075, ISO 27001, ISO 42001, NIST 800-53, NIST 800-171, NIST AI RMF, NIST CSF, NIST RMF, StateRAMP | [GitHub](https://github.com/robertwiley-grc) |
+| **[Jeffrey Collins](engineers/securedbyjc.md)** | Audit & Assurance, Cloud Security, Compliance Automation, Incident Response, Privacy, Risk Management, Security Architecture, Security Governance, Security Operations, Third-Party Risk, AI Governance, Cloud Governance | CMMC, EU AI Act, FedRAMP, GDPR, ISO 27001, ISO 42001, NIST 800-53, NIST 800-171, NIST AI RMF, NIST CSF, NIST RMF | [GitHub](https://github.com/securedbyjc), [LinkedIn](https://linkedin.com/in/securedbyjc) |
 <!-- END_ENGINEER_LIST -->
 
 ## Add Yourself
 
-Want to be listed in the directory? It's easy:
+The easiest way is to use the **[submission form](https://directory.grcengclub.com/submit/)** on the site — it walks you through creating your profile and opens a PR automatically.
 
-1. **Fork** this repository
-2. **Copy** `engineers/_template.md` to `engineers/{your-github-username}.md`
-3. **Fill out** your profile with your information
-4. **Submit** a Pull Request
+You can also fork this repo, copy `engineers/_template.md` to `engineers/{your-github-username}.md`, fill it out, and submit a PR. See [CONTRIBUTING.md](CONTRIBUTING.md) for details.
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed instructions and guidelines.
+## How It Works
 
-## About This Project
+- **Validation** — PRs with new engineer profiles are automatically validated for required fields
+- **README** — the engineer table above is auto-generated from profile files on each push
+- **Deploy** — the site rebuilds and deploys to GitHub Pages automatically
 
-This directory helps the GRC community:
-
-- **Find experts** in specific compliance frameworks or security domains
-- **Connect** with peers for mentoring, collaboration, or consulting
-- **Showcase** your expertise and contributions to the field
-
-### Why Contribute?
-
-- Increase your visibility in the GRC community
-- Connect with others working on similar challenges
-- Find mentors or mentees
-- Discover collaboration opportunities
+Built with [Eleventy](https://www.11ty.dev/) and deployed on [GitHub Pages](https://pages.github.com/).
 
 ## License
 
-This project is released under [CC0 1.0 Universal](LICENSE) - Public Domain Dedication.
-
-## Code of Conduct
-
-Please read our [Code of Conduct](CODE_OF_CONDUCT.md) before contributing.
+[CC0 1.0 Universal](LICENSE) — Public Domain Dedication. See our [Code of Conduct](CODE_OF_CONDUCT.md).

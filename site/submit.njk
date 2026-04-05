@@ -1,0 +1,257 @@
+---
+layout: layouts/base.njk
+title: Submit Your Profile — GRC Engineer Directory
+permalink: /submit/index.html
+---
+
+<div class="submit-page">
+  <div class="submit-header">
+    <h1>Join the Directory</h1>
+    <p class="submit-tagline">Fill out your profile below. When you're ready, we'll open GitHub so you can submit it — a PR will be created for you automatically.</p>
+  </div>
+
+  <div class="step-indicator">
+    <button class="step active" data-step="1" aria-current="step"><span class="step-num">1</span> Identity</button>
+    <button class="step" data-step="2" aria-disabled="true"><span class="step-num">2</span> Professional</button>
+    <button class="step" data-step="3" aria-disabled="true"><span class="step-num">3</span> Projects & Bio</button>
+    <button class="step" data-step="4" aria-disabled="true"><span class="step-num">4</span> Preview</button>
+  </div>
+
+  <form id="submit-form" class="submit-form" novalidate>
+
+    <!-- Step 1: Identity -->
+    <div class="form-step" data-step="1">
+      <h2 class="form-step-title">Identity <span class="form-required-note">* required</span></h2>
+
+      <div class="form-group">
+        <label class="form-label" for="field-github">GitHub Username *</label>
+        <div class="form-hint">Your profile avatar will be pulled from GitHub automatically.</div>
+        <div class="github-input-row">
+          <input type="text" id="field-github" name="github" required placeholder="octocat" autocomplete="off" pattern="[a-zA-Z0-9]([a-zA-Z0-9-]{0,37}[a-zA-Z0-9])?" maxlength="39">
+          <img id="github-avatar-preview" class="avatar-preview" src="" alt="" hidden>
+        </div>
+        <div class="form-error" id="error-github"></div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="field-name">Full Name *</label>
+        <input type="text" id="field-name" name="name" required placeholder="Jane Smith">
+        <div class="form-error" id="error-name"></div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" id="label-specializations">Specializations * <span class="form-hint-inline">select at least one</span></label>
+        <div class="chip-selector" id="chips-specializations" data-field="specializations" role="group" aria-labelledby="label-specializations">
+          <button type="button" class="chip" data-value="Audit & Assurance">Audit &amp; Assurance</button>
+          <button type="button" class="chip" data-value="Cloud Security">Cloud Security</button>
+          <button type="button" class="chip" data-value="Compliance Automation">Compliance Automation</button>
+          <button type="button" class="chip" data-value="Identity & Access Management">Identity &amp; Access Management</button>
+          <button type="button" class="chip" data-value="Incident Response">Incident Response</button>
+          <button type="button" class="chip" data-value="Offensive Security">Offensive Security</button>
+          <button type="button" class="chip" data-value="Privacy">Privacy</button>
+          <button type="button" class="chip" data-value="Risk Management">Risk Management</button>
+          <button type="button" class="chip" data-value="Security Architecture">Security Architecture</button>
+          <button type="button" class="chip" data-value="Security Governance">Security Governance</button>
+          <button type="button" class="chip" data-value="Security Operations">Security Operations</button>
+          <button type="button" class="chip" data-value="Third-Party Risk">Third-Party Risk</button>
+          <button type="button" class="chip" data-value="Vulnerability Management">Vulnerability Management</button>
+          <button type="button" class="chip" data-value="AI Governance">AI Governance</button>
+          <button type="button" class="chip" data-value="Cloud Governance">Cloud Governance</button>
+          <button type="button" class="chip" data-value="DevSecOps">DevSecOps</button>
+        </div>
+        <div class="custom-chip-add">
+          <input type="text" id="custom-specialization" placeholder="Other specialization…" aria-label="Add custom specialization">
+          <button type="button" id="add-custom-specialization" class="btn btn-outline btn-sm">Add</button>
+        </div>
+        <div class="form-error" id="error-specializations"></div>
+      </div>
+
+      <div class="form-nav">
+        <span></span>
+        <button type="button" class="btn btn-primary" data-next="2">Next →</button>
+      </div>
+    </div>
+
+    <!-- Step 2: Professional Info -->
+    <div class="form-step" data-step="2" hidden>
+      <h2 class="form-step-title">Professional Info <span class="form-required-note">all optional</span></h2>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label" for="field-title">Title</label>
+          <input type="text" id="field-title" name="title" placeholder="Senior GRC Engineer">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="field-company">Company</label>
+          <input type="text" id="field-company" name="company" placeholder="Acme Corp">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="field-location">Location</label>
+        <input type="text" id="field-location" name="location" placeholder="San Francisco, USA">
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label" for="field-linkedin">LinkedIn</label>
+          <input type="url" id="field-linkedin" name="linkedin" placeholder="https://linkedin.com/in/yourprofile">
+          <div class="form-error" id="error-linkedin"></div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="field-twitter">Twitter / X</label>
+          <input type="text" id="field-twitter" name="twitter" placeholder="@yourhandle">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label" for="field-bluesky">Bluesky</label>
+          <input type="text" id="field-bluesky" name="bluesky" placeholder="yourname.bsky.social">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="field-huggingface">Hugging Face</label>
+          <input type="text" id="field-huggingface" name="huggingface" placeholder="your-username">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="field-blog">Blog / Website</label>
+        <input type="url" id="field-blog" name="blog" placeholder="https://your-website.com">
+        <div class="form-error" id="error-blog"></div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" id="label-frameworks">Frameworks</label>
+        <div class="chip-selector" id="chips-frameworks" data-field="frameworks" role="group" aria-labelledby="label-frameworks">
+          <button type="button" class="chip" data-value="CCPA">CCPA</button>
+          <button type="button" class="chip" data-value="CJIS">CJIS</button>
+          <button type="button" class="chip" data-value="CMMC">CMMC</button>
+          <button type="button" class="chip" data-value="CMS ARC-AMPE">CMS ARC-AMPE</button>
+          <button type="button" class="chip" data-value="COBIT">COBIT</button>
+          <button type="button" class="chip" data-value="CSA STAR">CSA STAR</button>
+          <button type="button" class="chip" data-value="EU AI Act">EU AI Act</button>
+          <button type="button" class="chip" data-value="FedRAMP">FedRAMP</button>
+          <button type="button" class="chip" data-value="GAO Green Book">GAO Green Book</button>
+          <button type="button" class="chip" data-value="GDPR">GDPR</button>
+          <button type="button" class="chip" data-value="GovRAMP">GovRAMP</button>
+          <button type="button" class="chip" data-value="HIPAA">HIPAA</button>
+          <button type="button" class="chip" data-value="HITRUST">HITRUST</button>
+          <button type="button" class="chip" data-value="IRS Pub 1075">IRS Pub 1075</button>
+          <button type="button" class="chip" data-value="ISO 27001">ISO 27001</button>
+          <button type="button" class="chip" data-value="ISO 27017">ISO 27017</button>
+          <button type="button" class="chip" data-value="ISO 27018">ISO 27018</button>
+          <button type="button" class="chip" data-value="ISO 42001">ISO 42001</button>
+          <button type="button" class="chip" data-value="NIST 800-53">NIST 800-53</button>
+          <button type="button" class="chip" data-value="NIST 800-171">NIST 800-171</button>
+          <button type="button" class="chip" data-value="NIST AI RMF">NIST AI RMF</button>
+          <button type="button" class="chip" data-value="NIST CSF">NIST CSF</button>
+          <button type="button" class="chip" data-value="NIST RMF">NIST RMF</button>
+          <button type="button" class="chip" data-value="PCI-DSS">PCI-DSS</button>
+          <button type="button" class="chip" data-value="SOC 2">SOC 2</button>
+          <button type="button" class="chip" data-value="StateRAMP">StateRAMP</button>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" id="label-languages">Languages & Tools</label>
+        <div class="chip-selector" id="chips-languages" data-field="languages" role="group" aria-labelledby="label-languages">
+          <button type="button" class="chip" data-value="Bash">Bash</button>
+          <button type="button" class="chip" data-value="Go">Go</button>
+          <button type="button" class="chip" data-value="JavaScript">JavaScript</button>
+          <button type="button" class="chip" data-value="OPA/Rego">OPA/Rego</button>
+          <button type="button" class="chip" data-value="OSCAL">OSCAL</button>
+          <button type="button" class="chip" data-value="PowerShell">PowerShell</button>
+          <button type="button" class="chip" data-value="Python">Python</button>
+          <button type="button" class="chip" data-value="Rust">Rust</button>
+          <button type="button" class="chip" data-value="SQL">SQL</button>
+          <button type="button" class="chip" data-value="Terraform">Terraform</button>
+        </div>
+        <div class="custom-chip-add">
+          <input type="text" id="custom-language" placeholder="Other language/tool…" aria-label="Add custom language or tool">
+          <button type="button" id="add-custom-language" class="btn btn-outline btn-sm">Add</button>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="field-certifications">Certifications</label>
+        <div class="form-hint">Type a certification and press Enter to add it.</div>
+        <div class="tag-input-wrap">
+          <div class="tag-input-tags" id="cert-tags"></div>
+          <input type="text" id="field-certifications" placeholder="e.g. CISSP" aria-label="Add certification">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" id="label-available">Available For</label>
+        <div class="chip-selector" id="chips-available" data-field="available_for" role="group" aria-labelledby="label-available">
+          <button type="button" class="chip" data-value="mentoring">mentoring</button>
+          <button type="button" class="chip" data-value="speaking">speaking</button>
+          <button type="button" class="chip" data-value="consulting">consulting</button>
+          <button type="button" class="chip" data-value="open-source">open-source</button>
+          <button type="button" class="chip" data-value="hiring">hiring</button>
+          <button type="button" class="chip" data-value="freelance">freelance</button>
+          <button type="button" class="chip" data-value="collaboration">collaboration</button>
+        </div>
+      </div>
+
+      <div class="form-nav">
+        <button type="button" class="btn btn-outline" data-prev="1">← Back</button>
+        <button type="button" class="btn btn-primary" data-next="3">Next →</button>
+      </div>
+    </div>
+
+    <!-- Step 3: Projects & Bio -->
+    <div class="form-step" data-step="3" hidden>
+      <h2 class="form-step-title">Projects &amp; Bio <span class="form-required-note">all optional</span></h2>
+
+      <div class="form-group">
+        <label class="form-label">Notable Projects <span class="form-hint-inline">up to 5</span></label>
+        <div id="projects-list"></div>
+        <button type="button" id="add-project" class="btn btn-outline btn-sm">+ Add Project</button>
+        <div class="form-error" id="error-projects"></div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="field-about">About Me</label>
+        <div class="form-hint">Write 2-4 paragraphs about your background, current work, and passions in GRC.</div>
+        <textarea id="field-about" name="about" rows="5" placeholder="I got into GRC because…"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="field-highlights">Experience Highlights</label>
+        <div class="form-hint">Use bullet points (one per line). Each line becomes a list item.</div>
+        <textarea id="field-highlights" name="highlights" rows="4" placeholder="Led SOC 2 Type II audit for a Series B startup&#10;Built compliance-as-code pipeline with Terraform"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="field-contact">Get in Touch</label>
+        <div class="form-hint">Share your preferred contact method — LinkedIn DM, email, or however you'd like to connect.</div>
+        <textarea id="field-contact" name="contact" rows="3" placeholder="e.g. DM me on LinkedIn, or email hello@mydomain.com"></textarea>
+      </div>
+
+      <div class="form-nav">
+        <button type="button" class="btn btn-outline" data-prev="2">← Back</button>
+        <button type="button" class="btn btn-primary" data-next="4">Preview →</button>
+      </div>
+    </div>
+
+    <!-- Step 4: Preview -->
+    <div class="form-step" data-step="4" hidden>
+      <h2 class="form-step-title">Preview Your Profile</h2>
+      <p class="form-hint" style="margin-bottom:1.5rem;">Review your profile below. Once you submit, a pull request is created for our team to review before it goes live.</p>
+
+      <div id="profile-preview" class="profile-preview-container"></div>
+
+      <div class="submit-actions">
+        <button type="button" class="btn btn-outline" data-prev="1">← Edit</button>
+        <button type="button" id="btn-submit-github" class="btn btn-primary btn-lg">Submit to GitHub →</button>
+      </div>
+
+      <p class="submit-hint">You'll be taken to GitHub to submit an issue. A pull request will be created automatically.</p>
+    </div>
+
+  </form>
+</div>
+
+<script src="/site/assets/js/submit.js"></script>

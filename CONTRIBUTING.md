@@ -41,7 +41,9 @@ Click the "Fork" button at the top right of this repository to create your own c
 | `location` | City, Country | `San Francisco, USA` |
 | `linkedin` | LinkedIn profile URL | `https://linkedin.com/in/jsmith` |
 | `twitter` | Twitter/X handle | `@jsmith` |
+| `bluesky` | Bluesky handle | `jsmith.bsky.social` |
 | `blog` | Personal website or blog | `https://jsmith.dev` |
+| `huggingface` | Hugging Face username | `jsmith` |
 | `frameworks` | Compliance frameworks you work with | `[SOC 2, FedRAMP, ISO 27001]` |
 | `certifications` | Professional certifications | `[CISSP, CISA, CCSK]` |
 | `available_for` | What you're open to | `[mentoring, speaking]` |

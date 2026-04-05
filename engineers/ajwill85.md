@@ -1,5 +1,4 @@
 ---
-# REQUIRED FIELDS
 name: Akeem Williams
 github: ajwill85
 specializations:
@@ -11,16 +10,17 @@ specializations:
   - Audit & Assurance
   - Third-Party Risk
   - Privacy
+languages:
+  - Python
+  - Terraform
 
 # OPTIONAL FIELDS - Remove or leave blank if not applicable
 title: Sr. AI Information Security Analyst
 company: Invoca
 location: Remote, US
 
-# Social Links (optional)
 portfolio: https://ajwill.ai/
 
-# Frameworks you work with (optional)
 frameworks:
   - ISO 42001
   - ISO 27001
@@ -35,8 +35,6 @@ frameworks:
   - NIST AI RMF
   - EU AI Act
 
-
-# Professional certifications (optional)
 certifications:
   - CISSP
   - ISO 27001 Lead Auditor
@@ -49,15 +47,12 @@ certifications:
   - Verified Vanta Admin
 
 
-# What you're available for (optional)
-# Options: mentoring, speaking, consulting, open-source, hiring, freelance, collaboration
 available_for:
   - Freelance
   - Consulting
   - Collaboration
   - Hiring
 
-# Notable projects (optional)
 projects:
   - name: GRC AI Governance Framework with Policy-as-Code
     url: https://github.com/ajwill85/aws-ai-governance-framework
@@ -74,7 +69,7 @@ projects:
 
 ## About Me
 
-I'm a GRC Engineer and ISO Lead Auditor specializing in Cloud Security, AI governance, privacy controls, and compliance automation. I bridge the gap between compliance requirements and technical implementation, turning regulatory frameworks into automated, enforceable controls. 
+I'm a GRC Engineer and ISO Lead Auditor specializing in Cloud Security, AI governance, privacy controls, and compliance automation. I bridge the gap between compliance requirements and technical implementation, turning regulatory frameworks into automated, enforceable controls.
 
 I am passionate about learning and testing out new technologies in the field of security and AI. Recent projects include creating a GRC AI Governance Framework, using AWS  services to monitor and enforce AI, security, and privacy controls in the cloud.
 

@@ -1,0 +1,42 @@
+---
+name: "Steven Smith"
+github: "SmittyStuff"
+specializations:
+  - "Privacy"
+  - "Risk Management"
+  - "Security Architecture"
+  - "Security Governance"
+  - "Data Protection"
+  - "Encryption & Masking"
+title: "Information Security Consultant"
+company: "Bright Ridge LLC"
+location: "Salt Lake City, USA"
+linkedin: "https://www.linkedin.com/in/steven-smith-itnet/"
+frameworks:
+  - "CMMC"
+  - "HIPAA"
+  - "HITRUST"
+  - "ISO 27001"
+  - "NIST 800-53"
+  - "NIST 800-171"
+  - "NIST CSF"
+  - "NIST RMF"
+  - "PCI-DSS"
+  - "SOC 2"
+languages:
+  - "Bash"
+  - "PowerShell"
+  - "Python"
+certifications:
+  - "CISSP"
+  - "Security+"
+  - "CCNP Security"
+  - "ITIL 4 Foundation"
+  - "Thales CipherTrust Manager Professional"
+available_for:
+  - "consulting"
+  - "open-source"
+  - "hiring"
+  - "freelance"
+  - "collaboration"
+---

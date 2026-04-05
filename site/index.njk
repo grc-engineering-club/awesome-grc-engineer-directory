@@ -1,0 +1,72 @@
+---
+layout: layouts/home.njk
+title: GRC Engineer Directory — Find a GRC Engineer to Hire
+permalink: /index.html
+---
+<section class="hero" id="hero">
+  <div id="tsparticles" class="hero-particles"></div>
+  <div class="hero-content">
+    <h1>Find a GRC Engineer</h1>
+    <p class="hero-tagline">Filter by specialization, framework expertise, and availability — all engineers have real-world GRC experience.</p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="hero-stat-num" data-target="{{ collections.engineers.length }}">0</span> Engineers
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num" data-target="{{ collections.engineers | uniqueValues('frameworks') | length }}">0</span> Frameworks
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num" data-target="{{ collections.engineers | uniqueValues('certifications') | length }}">0</span> Certifications
+      </div>
+    </div>
+  </div>
+</section>
+
+{% include "partials/filter-bar.njk" %}
+
+<section class="directory">
+  <p class="results-count" aria-live="polite" aria-atomic="true"><span id="results-count">{{ collections.engineers.length }}</span> engineers</p>
+  <div class="card-grid">
+    {% for engineer in collections.engineers %}
+      {% include "partials/engineer-card.njk" %}
+    {% endfor %}
+  </div>
+  <p id="no-results" class="no-results" style="display:none" aria-live="polite">No engineers match your filters. Try removing a filter or broadening your search.</p>
+</section>
+
+<section class="insights">
+  <h2>Community Insights</h2>
+  <p class="insights-intro">A snapshot of the skills, frameworks, and availability across the directory.</p>
+  <div class="insights-grid">
+    <div class="insight-card">
+      <h3>Top Specializations</h3>
+      <canvas id="chart-specs" aria-label="Bar chart showing top specializations across engineers" role="img"></canvas>
+    </div>
+    <div class="insight-card">
+      <h3>Framework Coverage</h3>
+      <canvas id="chart-frameworks" aria-label="Doughnut chart showing framework coverage across engineers" role="img"></canvas>
+    </div>
+    <div class="insight-card">
+      <h3>Availability</h3>
+      <canvas id="chart-available" aria-label="Polar area chart showing availability types across engineers" role="img"></canvas>
+    </div>
+    <div class="insight-card">
+      <h3>Languages & Tools</h3>
+      <canvas id="chart-languages" aria-label="Bar chart showing languages and tools used by engineers" role="img"></canvas>
+    </div>
+  </div>
+</section>
+
+<script id="chart-data" type="application/json">
+{
+  "specializations": {{ collections.engineers | countValues("specializations") | dump | safe }},
+  "frameworks": {{ collections.engineers | countValues("frameworks") | dump | safe }},
+  "available_for": {{ collections.engineers | countValues("available_for") | dump | safe }},
+  "languages": {{ collections.engineers | countValues("languages") | dump | safe }}
+}
+</script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
+<script src="/site/assets/js/search.js"></script>
+<script defer src="/site/assets/js/effects.js"></script>

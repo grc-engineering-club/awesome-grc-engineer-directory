@@ -15,7 +15,7 @@ jobs:
 
       - name: Install yq
         run: |
-          sudo wget -qO /usr/local/bin/yq https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64
+          sudo wget -qO /usr/local/bin/yq https://github.com/mikefarah/yq/releases/download/v4.44.1/yq_linux_amd64
           sudo chmod +x /usr/local/bin/yq
 
       - name: Validate submissions
@@ -61,8 +61,16 @@ jobs:
               ERROR_COUNT=$((ERROR_COUNT + 1))
             fi
 
+            # Validate GitHub username format
+            if [ -n "$github" ] && [ "$github" != "null" ]; then
+              if ! echo "$github" | grep -qE '^[a-zA-Z0-9]([a-zA-Z0-9-]{0,37}[a-zA-Z0-9])?$'; then
+                echo "::error file=$file::Invalid GitHub username format: '$github' (must be 1-39 chars, alphanumeric/hyphens, no leading/trailing hyphens)"
+                ERROR_COUNT=$((ERROR_COUNT + 1))
+              fi
+            fi
+
             # Non-blocking link validation (warnings only)
-            for url_field in linkedin blog twitter; do
+            for url_field in linkedin blog; do
               url=$(echo "$frontmatter" | yq e ".$url_field" 2>/dev/null)
               if [ -n "$url" ] && [ "$url" != "null" ]; then
                 if ! echo "$url" | grep -qE '^https?://'; then
@@ -71,6 +79,13 @@ jobs:
                 fi
               fi
             done
+
+            # Check for dangerous HTML in body content
+            body=$(awk 'BEGIN{c=0} /^---$/{c++;next} c>=2' "$file")
+            if echo "$body" | grep -qiE '<script|<iframe|<embed|<object|onerror=|onload=|onclick=|onmouseover=|javascript:'; then
+              echo "::error file=$file::File contains potentially dangerous HTML content"
+              ERROR_COUNT=$((ERROR_COUNT + 1))
+            fi
           done
 
           echo "Validation complete: $ERROR_COUNT errors, $WARNING_COUNT warnings"

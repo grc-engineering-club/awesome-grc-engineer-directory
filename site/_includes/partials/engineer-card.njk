@@ -1,0 +1,42 @@
+<article
+  class="card"
+  style="--i:{{ loop.index0 }}"
+  data-specializations="{{ (engineer.data.specializations or []) | join(',') | lower }}"
+  data-frameworks="{{ (engineer.data.frameworks or []) | join(',') | lower }}"
+  data-certifications="{{ (engineer.data.certifications or []) | join(',') | lower }}"
+  data-available="{{ (engineer.data.available_for or []) | join(',') | lower }}"
+  data-languages="{{ (engineer.data.languages or []) | join(',') | lower }}"
+  data-name="{{ engineer.data.name | lower }}"
+>
+  <div class="card-header">
+    <img
+      src="https://github.com/{{ engineer.data.github }}.png?size=200"
+      alt="{{ engineer.data.name }}"
+      class="card-avatar"
+      width="64"
+      height="64"
+      loading="lazy"
+    >
+    <div>
+      <a href="/engineers/{{ engineer.data.github }}/" class="card-name">{{ engineer.data.name }}</a>
+      {% if engineer.data.title %}<p class="card-title">{{ engineer.data.title }}</p>{% endif %}
+      {% if engineer.data.company %}<p class="card-company">{{ engineer.data.company }}</p>{% endif %}
+    </div>
+  </div>
+
+  {% if engineer.data.location %}
+  <p class="card-location">{{ engineer.data.location }}</p>
+  {% endif %}
+
+  <div class="card-links">
+    {% for social in socials %}
+      {% set val = engineer.data[social.key] %}
+      {% if val or social.alwaysShow %}
+        {% set href = social | socialUrl(val or engineer.data.github) %}
+        <a href="{{ href }}" target="_blank" rel="noopener" aria-label="{{ social.label }}">
+          <span aria-hidden="true">{{ social.icon | safe }}</span>
+        </a>
+      {% endif %}
+    {% endfor %}
+  </div>
+</article>

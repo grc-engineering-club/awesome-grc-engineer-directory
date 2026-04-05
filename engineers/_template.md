@@ -5,6 +5,15 @@ github: your-github-username
 specializations:
   - Cloud Security
   - Compliance Automation
+# Options: AI Governance, Audit & Assurance, Cloud Governance, Cloud Security, Compliance Automation,
+#   DevSecOps, Identity & Access Management, Incident Response, Offensive Security, Privacy,
+#   Risk Management, Security Architecture, Security Governance, Security Operations,
+#   Third-Party Risk, Vulnerability Management
+
+# Programming languages & tools (optional)
+# Options: Bash, Go, JavaScript, OPA/Rego, OSCAL, PowerShell, Python, Rust, SQL, Terraform
+languages:
+  - Python
 
 # OPTIONAL FIELDS - Remove or leave blank if not applicable
 title: Your Job Title
@@ -14,7 +23,12 @@ location: City, Country
 # Social Links (optional)
 linkedin: https://linkedin.com/in/your-profile
 twitter: "@yourhandle"
-blog: https://your-website.com
+bluesky: yourname.bsky.social
+website: https://your-website.com
+blog: https://your-blog.com
+youtube: your-channel-handle
+huggingface: your-username
+credly: https://www.credly.com/users/your-username/badges
 
 # Frameworks you work with (optional)
 frameworks:
@@ -28,7 +42,7 @@ certifications:
   - CISA
 
 # What you're available for (optional)
-# Options: mentoring, speaking, consulting, open-source, hiring, freelance, collaboration
+# Options (all lowercase): mentoring, speaking, consulting, open-source, hiring, freelance, collaboration
 available_for:
   - mentoring
   - open-source
