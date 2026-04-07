@@ -38,3 +38,9 @@ jobs:
           git diff --staged --quiet || git commit -m "docs: refresh imported jobs"
           git pull --rebase origin main
           git push
+
+      - name: Notify Slack of new jobs
+        if: success()
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: node scripts/notify-slack.js
