@@ -1,5 +1,20 @@
 _site/
 node_modules/
 .playwright-mcp/
-*.png
 .firecrawl/
+/*.png
+
+# Local AI / agent tooling state
+.agent/
+.agents/
+.claude/
+.crush/
+.kiro/
+CLAUDE.md
+skills-lock.json
+
+# Local design and session notes
+.impeccable.md
+
+# OS clutter
+.DS_Store
