@@ -15,7 +15,7 @@ location: "United States"
 work_modes:
   - "Remote"
 job_types:
-  - "Regular Full Time"
+  - "Full-time"
 specializations:
   - "Compliance Automation"
   - "Risk Management"

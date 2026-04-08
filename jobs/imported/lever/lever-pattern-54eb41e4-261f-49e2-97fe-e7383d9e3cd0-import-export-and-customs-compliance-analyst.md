@@ -15,7 +15,7 @@ location: "Pune, India"
 work_modes:
   - "Hybrid / On-site"
 job_types:
-  - "Full-time (Salary)"
+  - "Full-time"
 specializations:
   - "Compliance Automation"
   - "Risk Management"

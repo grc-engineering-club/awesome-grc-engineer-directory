@@ -15,7 +15,7 @@ location: "Reno, NV"
 work_modes:
   - "Remote"
 job_types:
-  - "Full-Time"
+  - "Full-time"
 specializations:
   - "Compliance Automation"
   - "Risk Management"

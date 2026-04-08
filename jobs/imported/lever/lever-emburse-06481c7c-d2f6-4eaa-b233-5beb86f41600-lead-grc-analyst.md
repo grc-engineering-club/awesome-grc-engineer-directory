@@ -15,7 +15,7 @@ location: "Dallas, TX"
 work_modes:
   - "Hybrid / On-site"
 job_types:
-  - "Full-Time"
+  - "Full-time"
 specializations:
   - "Compliance Automation"
   - "Risk Management"

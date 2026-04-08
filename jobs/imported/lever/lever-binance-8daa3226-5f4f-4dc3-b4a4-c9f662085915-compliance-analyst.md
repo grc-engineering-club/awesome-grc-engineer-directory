@@ -15,7 +15,7 @@ location: "Kazakhstan, Almaty"
 work_modes:
   - "Remote"
 job_types:
-  - "Full-time: Remote"
+  - "Full-time"
 specializations:
   - "Compliance Automation"
   - "Risk Management"
