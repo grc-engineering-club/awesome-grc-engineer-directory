@@ -1,6 +1,6 @@
 const fs = require("fs/promises");
 const path = require("path");
-const { greenhouseBoards: catalogGreenhouseBoards, ashbyBoards: catalogAshbyBoards, workableBoards: catalogWorkableBoards, leverBoards: catalogLeverBoards } = require("./job-board-sources");
+const { greenhouseBoards: catalogGreenhouseBoards, ashbyBoards: catalogAshbyBoards, workableBoards: catalogWorkableBoards, leverBoards: catalogLeverBoards, ripplingBoards: catalogRipplingBoards } = require("./job-board-sources");
 
 const ROOT = process.cwd();
 const IMPORT_ROOT = path.join(ROOT, "jobs", "imported");
@@ -176,6 +176,10 @@ function normalizeJobType(value) {
   if (!normalized) return "Full-time";
   if (normalized === "FullTime") return "Full-time";
   if (normalized === "PartTime") return "Part-time";
+  if (/salaried.*full|full.*time/i.test(normalized)) return "Full-time";
+  if (/salaried.*part|part.*time/i.test(normalized)) return "Part-time";
+  if (normalized === "SALARIED_FT") return "Full-time";
+  if (normalized === "SALARIED_PT") return "Part-time";
   return normalized;
 }
 
@@ -334,6 +338,33 @@ function looksRelevant(title, text) {
   }
 
   return grcSignals >= 3 || (grcSignals >= 2 && (frameworkSignals >= 1 || automationSignals >= 1));
+}
+
+function titleMayBeRelevant(title) {
+  const t = String(title || "").toLowerCase();
+  const blockedTitleTerms = [
+    "marketing", "social media", "payroll", "clinical",
+    "biology", "nutrition", "civil", "commercial",
+    "account executive", "customer success", "deal desk", "sales",
+    "content", "psychologist", "scientist", "intern",
+    "recruiter", "talent", "legal counsel"
+  ];
+  if (includesAny(t, blockedTitleTerms)) return false;
+  const signals = [
+    "grc", "governance", "compliance", "fedramp", "rmf",
+    "risk management", "risk & compliance", "risk and compliance",
+    "security compliance", "security & compliance", "security and compliance",
+    "compliance automation", "it governance", "trust and compliance",
+    "compliance engineer", "compliance analyst", "compliance specialist",
+    "compliance lead", "compliance manager", "compliance developer",
+    "controls monitoring", "controls assurance",
+    "security risk", "cyber risk", "security governance",
+    "security trust", "security controls", "technology risk",
+    "it risk", "privacy compliance", "privacy engineering",
+    "assessor", "cmmc", "audit", "vendor risk", "third-party risk",
+    "security assurance", "nist", "soc 2", "soc2", "iso 27001", "hipaa"
+  ];
+  return includesAny(t, signals);
 }
 
 function yamlString(value) {
@@ -722,6 +753,115 @@ async function importLever() {
   return imported;
 }
 
+function normalizeRipplingJob(boardSlug, detail) {
+  const descParts = [];
+  if (detail.description) {
+    if (typeof detail.description === "string") {
+      descParts.push(detail.description);
+    } else {
+      if (detail.description.company) descParts.push(detail.description.company);
+      if (detail.description.role) descParts.push(detail.description.role);
+    }
+  }
+  const rawHtml = descParts.join("\n");
+  const body = htmlToMarkdown(rawHtml);
+  const summary = stripHtml(rawHtml);
+
+  const location = Array.isArray(detail.workLocations) && detail.workLocations.length
+    ? detail.workLocations.join(" | ")
+    : "Remote";
+
+  const text = [detail.name, boardSlug, location, summary].join(" ");
+  if (!looksRelevant(detail.name, text)) return null;
+
+  const postedDate = toIsoDate(detail.createdOn);
+  const slug = slugify(["rippling", boardSlug, detail.uuid, detail.name].join("-")).slice(0, 120);
+
+  let compensation = "";
+  if (Array.isArray(detail.payRangeDetails) && detail.payRangeDetails.length) {
+    const range = detail.payRangeDetails.find(function(r) { return r.isRemote; })
+      || detail.payRangeDetails[0];
+    if (range.rangeStart || range.rangeEnd) {
+      compensation = formatCompensation(range.rangeStart, range.rangeEnd, range.currency || "USD");
+    }
+  }
+
+  const empType = (detail.employmentType && (detail.employmentType.id || detail.employmentType.label)) || "";
+  const company = detail.companyName || titleCaseFromSlug(boardSlug);
+
+  return buildNormalizedJob({
+    title: detail.name,
+    company,
+    slug,
+    source: "Rippling",
+    sources: ["Rippling"],
+    source_url: "https://ats.rippling.com/" + boardSlug + "/jobs",
+    role_url: detail.url || "",
+    apply_url: detail.url || "",
+    posted_date: postedDate,
+    expires_date: addDays(postedDate, 30),
+    location,
+    work_modes: /remote/i.test(location + " " + summary) ? ["Remote"] : ["Hybrid / On-site"],
+    job_types: [normalizeJobType(empType)],
+    compensation,
+    summary,
+    body
+  });
+}
+
+async function importRippling() {
+  const boards = configuredBoards("RIPPLING_BOARDS", catalogRipplingBoards);
+  if (!boards.length) return [];
+
+  const imported = [];
+  for (const board of boards) {
+    try {
+      const allJobs = [];
+      let offset = 0;
+      const limit = 100;
+      const maxPages = 10;
+      for (let page = 0; page < maxPages; page++) {
+        const url = "https://api.rippling.com/platform/api/ats/v1/board/"
+          + encodeURIComponent(board) + "/jobs?limit=" + limit + "&offset=" + offset;
+        const result = await fetchJson(url);
+        const jobs = Array.isArray(result) ? result : [];
+        allJobs.push(...jobs);
+        if (jobs.length < limit) break;
+        offset += limit;
+      }
+
+      const candidates = allJobs.filter(function(job) {
+        return titleMayBeRelevant(job.name);
+      });
+      console.log("[rippling] " + board + ": " + allJobs.length + " listed, "
+        + candidates.length + " passed pre-filter");
+
+      const BATCH_SIZE = 5;
+      for (let i = 0; i < candidates.length; i += BATCH_SIZE) {
+        const batch = candidates.slice(i, i + BATCH_SIZE);
+        const details = await Promise.all(batch.map(function(job) {
+          const detailUrl = "https://api.rippling.com/platform/api/ats/v1/board/"
+            + encodeURIComponent(board) + "/jobs/" + encodeURIComponent(job.uuid);
+          return fetchJson(detailUrl).catch(function(err) {
+            console.warn("[rippling] failed to fetch detail for " + job.uuid + ": " + err.message);
+            return null;
+          });
+        }));
+
+        details.forEach(function(detail) {
+          if (!detail) return;
+          const normalized = normalizeRipplingJob(board, detail);
+          if (normalized) imported.push(normalized);
+        });
+      }
+    } catch (error) {
+      console.warn("[rippling] skipped board " + board + ": " + (error.message || error));
+    }
+  }
+
+  return imported;
+}
+
 async function runSource(key, enabled, importer) {
   if (!enabled) {
     console.log("[" + key + "] skipped");
@@ -743,10 +883,11 @@ async function main() {
   total += await runSource("ashby", configuredBoards("ASHBY_JOB_BOARDS", catalogAshbyBoards).length > 0, importAshby);
   total += await runSource("workable", configuredBoards("WORKABLE_BOARDS", catalogWorkableBoards).length > 0, importWorkable);
   total += await runSource("lever", configuredBoards("LEVER_BOARDS", catalogLeverBoards).length > 0, importLever);
+  total += await runSource("rippling", configuredBoards("RIPPLING_BOARDS", catalogRipplingBoards).length > 0, importRippling);
 
   if (total === 0) {
     console.log("No jobs matched the current GRC filters.");
-    console.log("Tip: curated Greenhouse, Ashby, Workable, and Lever boards are checked into the repo.");
+    console.log("Tip: curated Greenhouse, Ashby, Workable, Lever, and Rippling boards are checked into the repo.");
   }
 }
 

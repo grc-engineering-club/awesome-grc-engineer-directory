@@ -86,5 +86,21 @@ module.exports = {
     "swordhealth",
     "trendyol",
     "whoop"
+  ],
+  ripplingBoards: [
+    "aalyria-careers",
+    "agencycyber",
+    "barr-careers",
+    "brevian-careers",
+    "coterie-careers",
+    "d-wave-quantum",
+    "dynamo-ai",
+    "managed-careers",
+    "mozn-ai",
+    "nesto",
+    "saliense",
+    "soteria",
+    "workstreet",
+    "wwwcarbon3aicareers"
   ]
 };
