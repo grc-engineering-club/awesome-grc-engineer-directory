@@ -1,6 +1,6 @@
 const fs = require("fs/promises");
 const path = require("path");
-const { greenhouseBoards: catalogGreenhouseBoards, ashbyBoards: catalogAshbyBoards, workableBoards: catalogWorkableBoards } = require("./job-board-sources");
+const { greenhouseBoards: catalogGreenhouseBoards, ashbyBoards: catalogAshbyBoards, workableBoards: catalogWorkableBoards, leverBoards: catalogLeverBoards } = require("./job-board-sources");
 
 const ROOT = process.cwd();
 const IMPORT_ROOT = path.join(ROOT, "jobs", "imported");
@@ -644,6 +644,84 @@ async function importWorkable() {
   return imported;
 }
 
+function normalizeLeverJob(boardSlug, job) {
+  const bodyParts = [job.descriptionBody || job.description || "", job.opening || ""];
+  if (Array.isArray(job.lists)) {
+    job.lists.forEach((list) => {
+      bodyParts.push("<h3>" + (list.text || "") + "</h3>");
+      bodyParts.push((list.content || ""));
+    });
+  }
+  bodyParts.push(job.additional || "");
+  const rawHtml = bodyParts.join("\n");
+  const body = htmlToMarkdown(rawHtml);
+  const summary = stripHtml(rawHtml);
+  const location = (job.categories && job.categories.location) || job.country || "Remote";
+  const text = [job.text, boardSlug, location, summary].join(" ");
+  if (!looksRelevant(job.text, text)) return null;
+
+  const postedDate = toIsoDate(job.createdAt);
+  const slug = slugify(["lever", boardSlug, job.id, job.text].join("-")).slice(0, 120);
+
+  const compensation = job.salaryRange
+    ? formatCompensation(job.salaryRange.min, job.salaryRange.max, job.salaryRange.currency)
+    : "";
+
+  return buildNormalizedJob({
+    title: job.text,
+    company: titleCaseFromSlug(boardSlug),
+    slug,
+    source: "Lever",
+    sources: ["Lever"],
+    source_url: "https://jobs.lever.co/" + boardSlug,
+    role_url: job.hostedUrl || "",
+    apply_url: job.applyUrl || job.hostedUrl || "",
+    posted_date: postedDate,
+    expires_date: addDays(postedDate, 30),
+    location,
+    work_modes: (job.workplaceType === "remote" || /remote/i.test(location + " " + ((job.categories && job.categories.commitment) || "")))
+      ? ["Remote"]
+      : ["Hybrid / On-site"],
+    job_types: [normalizeJobType((job.categories && job.categories.commitment) || "")],
+    compensation,
+    summary,
+    body
+  });
+}
+
+async function fetchLeverJson(url) {
+  const response = await fetch(url, {
+    headers: { "User-Agent": USER_AGENT }
+  });
+  if (!response.ok) {
+    throw new Error("Request failed: " + response.status + " " + response.statusText + " for " + url);
+  }
+  const text = await response.text();
+  const cleaned = text.replace(/[\x00-\x08\x0b\x0c\x0e-\x1f]/g, "");
+  return JSON.parse(cleaned);
+}
+
+async function importLever() {
+  const boards = configuredBoards("LEVER_BOARDS", catalogLeverBoards);
+  if (!boards.length) return [];
+
+  const imported = [];
+  for (const board of boards) {
+    try {
+      const data = await fetchLeverJson("https://api.lever.co/v0/postings/" + encodeURIComponent(board) + "?mode=json");
+      const jobs = Array.isArray(data) ? data : [];
+      jobs.forEach((job) => {
+        const normalized = normalizeLeverJob(board, job);
+        if (normalized) imported.push(normalized);
+      });
+    } catch (error) {
+      console.warn("[lever] skipped board " + board + ": " + (error.message || error));
+    }
+  }
+
+  return imported;
+}
+
 async function runSource(key, enabled, importer) {
   if (!enabled) {
     console.log("[" + key + "] skipped");
@@ -664,10 +742,11 @@ async function main() {
   total += await runSource("greenhouse", configuredBoards("GREENHOUSE_BOARDS", catalogGreenhouseBoards).length > 0, importGreenhouse);
   total += await runSource("ashby", configuredBoards("ASHBY_JOB_BOARDS", catalogAshbyBoards).length > 0, importAshby);
   total += await runSource("workable", configuredBoards("WORKABLE_BOARDS", catalogWorkableBoards).length > 0, importWorkable);
+  total += await runSource("lever", configuredBoards("LEVER_BOARDS", catalogLeverBoards).length > 0, importLever);
 
   if (total === 0) {
     console.log("No jobs matched the current GRC filters.");
-    console.log("Tip: curated Greenhouse, Ashby, and Workable boards are checked into the repo. Add GREENHOUSE_BOARDS, ASHBY_JOB_BOARDS, or WORKABLE_BOARDS to extend the board list.");
+    console.log("Tip: curated Greenhouse, Ashby, Workable, and Lever boards are checked into the repo.");
   }
 }
 
