@@ -9,8 +9,8 @@ sources:
 source_url: "https://api.ashbyhq.com/posting-api/job-board/monarchmoney?includeCompensation=true"
 role_url: "https://jobs.ashbyhq.com/monarchmoney/45ce8f3e-1278-4a44-8f92-fed595a6ad1a"
 apply_url: "https://jobs.ashbyhq.com/monarchmoney/45ce8f3e-1278-4a44-8f92-fed595a6ad1a/application"
-posted_date: "2026-04-08"
-expires_date: "2026-05-08"
+posted_date: "2026-04-09"
+expires_date: "2026-05-09"
 location: "Remote (US)"
 work_modes:
   - "Remote"

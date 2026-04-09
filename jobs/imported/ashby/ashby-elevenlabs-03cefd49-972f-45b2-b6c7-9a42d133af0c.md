@@ -1,17 +1,17 @@
 ---
-title: "Compliance Engineer - US"
+title: "Compliance Engineer - APAC"
 company: "Elevenlabs"
-slug: "ashby-elevenlabs-f80d0420-b6e6-4110-940c-293f64b9761e"
+slug: "ashby-elevenlabs-03cefd49-972f-45b2-b6c7-9a42d133af0c"
 status: "published"
 source: "Ashby"
 sources:
   - "Ashby"
 source_url: "https://api.ashbyhq.com/posting-api/job-board/elevenlabs?includeCompensation=true"
-role_url: "https://jobs.ashbyhq.com/elevenlabs/f80d0420-b6e6-4110-940c-293f64b9761e"
-apply_url: "https://jobs.ashbyhq.com/elevenlabs/f80d0420-b6e6-4110-940c-293f64b9761e/application"
+role_url: "https://jobs.ashbyhq.com/elevenlabs/03cefd49-972f-45b2-b6c7-9a42d133af0c"
+apply_url: "https://jobs.ashbyhq.com/elevenlabs/03cefd49-972f-45b2-b6c7-9a42d133af0c/application"
 posted_date: "2026-04-09"
 expires_date: "2026-05-09"
-location: "New York"
+location: "Tokyo"
 work_modes:
   - "Remote"
 job_types:
@@ -22,9 +22,7 @@ specializations:
   - "Audit & Assurance"
   - "Cloud Security"
 frameworks:
-  - "FedRAMP"
-  - "CMMC"
-  - "CJIS"
+  - "ISO 27001"
 languages: []
 compensation: ""
 summary: "About ElevenLabs ElevenLabs is an AI research and product company transforming how we interact with technology. We launched in January 2023 with the first human-like AI voice..."
@@ -61,16 +59,18 @@ Everything we do is the result of the creativity and commitment of our team - bu
 
 ## About the Role
 
-- Collaborating across teams to maintain US Government compliance certifications and frameworks such as GovRAMP, FedRAMP, CJIS and CMMC.
-- Helping to shape ElevenLabs’ Enterprise offering towards regulated industries such as Local and State Government, Defense and Finance.
+- Collaborating across teams to maintain compliance certifications and frameworks relevant to the APAC region, such as ISO 27001 and regional data protection acts like the Australian Privacy Principles (APP) or Singapore's PDPA.
+- Helping to shape ElevenLabs’ Enterprise offering towards regulated industries in the APAC region, such as Finance, Telecommunications, and Government sectors, particularly focusing on opportunities in Australia, New Zealand, and Singapore.
 - Building technical documentation to demonstrate our compliance to our customers throughout the stack.
 - Assisting the sales team by responding to client security requests and managing compliance-related queries.
-- Conduct risk assessments based on CIS or NIST frameworks, document findings, and help teams achieve compliance efficiently.
+- Conduct risk assessments based on CIS or ISO 27000 series frameworks, document findings, and help teams achieve compliance efficiently.
 - Enhance compliance as code tooling to automate monitoring, reporting, and reduce friction for other teams to remain compliant.
 
-## Requirements
+###
 
-- Experience in completing vendor security assessments and client security questionnaires in highly regulated industries, such as Government and Defense in the US.
+## What you bring
+
+- Experience in completing vendor security assessments and client security questionnaires in regulated industries across the APAC region, such as Government, Defense, and Finance, with an emphasis on Australia, New Zealand, or Singapore.
 - Strong technical expertise in managing and executing compliance, with hands-on experience using compliance management tools (e.g. Vanta).
 - Proven ability to maintain and acquire certifications while managing audit readiness and documentation.
 - Experience collaborating with cross-functional teams (sales, engineering, legal) to effectively communicate compliance requirements and ensure smooth operations.
@@ -79,4 +79,4 @@ Everything we do is the result of the creativity and commitment of our team - bu
 
 ## Location
 
-This role is remote-first, so it can be executed from anywhere in the United States, with the ability to operate in GMT-5 timezone required. If you prefer, you can work from our offices in New York or San Francisco.
+This role is remote-first, so it can be executed from anywhere in APAC, with the ability to operate in GMT+8 to GMT+12 timezones preferred. If you prefer, you can work from our office in Tokyo.

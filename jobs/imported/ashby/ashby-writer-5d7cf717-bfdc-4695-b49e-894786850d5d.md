@@ -9,8 +9,8 @@ sources:
 source_url: "https://api.ashbyhq.com/posting-api/job-board/writer?includeCompensation=true"
 role_url: "https://jobs.ashbyhq.com/writer/5d7cf717-bfdc-4695-b49e-894786850d5d"
 apply_url: "https://jobs.ashbyhq.com/writer/5d7cf717-bfdc-4695-b49e-894786850d5d/application"
-posted_date: "2026-04-08"
-expires_date: "2026-05-08"
+posted_date: "2026-04-09"
+expires_date: "2026-05-09"
 location: "New York City, NY"
 work_modes:
   - "Hybrid / On-site"

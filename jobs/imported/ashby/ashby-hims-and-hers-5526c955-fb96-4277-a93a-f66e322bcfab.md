@@ -9,8 +9,8 @@ sources:
 source_url: "https://api.ashbyhq.com/posting-api/job-board/hims-and-hers?includeCompensation=true"
 role_url: "https://jobs.ashbyhq.com/hims-and-hers/5526c955-fb96-4277-a93a-f66e322bcfab"
 apply_url: "https://jobs.ashbyhq.com/hims-and-hers/5526c955-fb96-4277-a93a-f66e322bcfab/application"
-posted_date: "2026-04-08"
-expires_date: "2026-05-08"
+posted_date: "2026-04-09"
+expires_date: "2026-05-09"
 location: "US Remote"
 work_modes:
   - "Remote"
