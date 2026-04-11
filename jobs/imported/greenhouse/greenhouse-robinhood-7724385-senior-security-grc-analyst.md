@@ -9,8 +9,8 @@ sources:
 source_url: "https://boards-api.greenhouse.io/v1/boards/robinhood/jobs?content=true"
 role_url: "https://boards.greenhouse.io/robinhood/jobs/7724385?t=gh_src=&gh_jid=7724385"
 apply_url: "https://boards.greenhouse.io/robinhood/jobs/7724385?t=gh_src=&gh_jid=7724385"
-posted_date: "2026-04-03"
-expires_date: "2026-05-03"
+posted_date: "2026-04-10"
+expires_date: "2026-05-10"
 location: "Ljubljana, Slovenia"
 work_modes:
   - "Hybrid / On-site"
@@ -34,7 +34,7 @@ summary: "Join us in building the future of finance. Our mission is to democrati
 <p>The Security GRC (Governance, Risk, and Compliance) team’s mission is to ensure Robinhood meets its “Safety Always” commitments through disciplined risk management, resilient control environments, and effective governance practices. We work closely with Information Security, Technology, Corporate Engineering, Enterprise Risk, and Compliance teams to maintain strong oversight of risk across the organization. Our team supports global regulatory alignment while enabling the business to build compliant, secure products efficiently.</p>
 <p>As a Senior Security GRC Analyst, you will focus on risk management across Information Security, Technology, and Corporate Engineering. You will conduct risk assessments, evaluate control effectiveness, support regulatory exams and audits, and provide clear reporting on risk posture. You will help strengthen how Robinhood manages risk across multiple regulatory environments through a centralized enterprise approach. This role offers exposure to international expansion efforts and the opportunity to contribute to automation and AI initiatives that improve control testing, reporting, and governance processes.&nbsp;</p>
 <p><strong>This role is based in our Ljubljana, Slovenia office, with in-person attendance expected at least 2 days per week.&nbsp;</strong><br><br>At Robinhood, we believe in the power of in-person work to accelerate progress, spark innovation, and strengthen community. Our office experience is intentional, energizing, and designed to fully support high-performing teams.</p>
-<p>Applications for this role will be accepted through <span data-rich-links="{"dat_df":{"fres_frt":1,"dfie_ts":{"tv":{"tv_s":1775822400,"tv_n":0}},"dfie_l":"en","dfie_p":{"fres_frt":0,"tres_tv":"MMM d, y"},"dfie_dt":"Apr 10, 2026","dfie_pt":3,"dfie_tpt":0,"dfie_tzi":""},"type":"date"}">April 20, 2026</span>.</p>
+<p>Applications for this role will be accepted through <span data-rich-links="{"dat_df":{"fres_frt":1,"dfie_ts":{"tv":{"tv_s":1775822400,"tv_n":0}},"dfie_l":"en","dfie_p":{"fres_frt":0,"tres_tv":"MMM d, y"},"dfie_dt":"Apr 10, 2026","dfie_pt":3,"dfie_tpt":0,"dfie_tzi":""},"type":"date"}">May 8, 2026</span>.</p>
 <h2><strong>What you’ll do</strong></h2>
 <ul>
 <li>Conduct risk assessments for security exceptions and issues across Information Security, Technology, and Corporate Engineering, and recommend appropriate risk treatment actions.</li>
