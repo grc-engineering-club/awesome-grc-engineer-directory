@@ -9,8 +9,8 @@ sources:
 source_url: "https://api.ashbyhq.com/posting-api/job-board/lambda?includeCompensation=true"
 role_url: "https://jobs.ashbyhq.com/lambda/0ca9bb78-6d6b-4b71-8f77-762f0b16b959"
 apply_url: "https://jobs.ashbyhq.com/lambda/0ca9bb78-6d6b-4b71-8f77-762f0b16b959/application"
-posted_date: "2026-04-18"
-expires_date: "2026-05-18"
+posted_date: "2026-04-19"
+expires_date: "2026-05-19"
 location: "San Francisco Office"
 work_modes:
   - "Hybrid / On-site"
