@@ -9,8 +9,8 @@ sources:
 source_url: "https://api.ashbyhq.com/posting-api/job-board/Crusoe?includeCompensation=true"
 role_url: "https://jobs.ashbyhq.com/Crusoe/9f1674fe-a834-432a-827d-3bec831c67cb"
 apply_url: "https://jobs.ashbyhq.com/Crusoe/9f1674fe-a834-432a-827d-3bec831c67cb/application"
-posted_date: "2026-04-19"
-expires_date: "2026-05-19"
+posted_date: "2026-04-20"
+expires_date: "2026-05-20"
 location: "San Francisco, CA - US"
 work_modes:
   - "Hybrid / On-site"
