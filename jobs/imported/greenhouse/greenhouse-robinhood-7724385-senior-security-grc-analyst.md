@@ -9,8 +9,8 @@ sources:
 source_url: "https://boards-api.greenhouse.io/v1/boards/robinhood/jobs?content=true"
 role_url: "https://boards.greenhouse.io/robinhood/jobs/7724385?t=gh_src=&gh_jid=7724385"
 apply_url: "https://boards.greenhouse.io/robinhood/jobs/7724385?t=gh_src=&gh_jid=7724385"
-posted_date: "2026-04-29"
-expires_date: "2026-05-29"
+posted_date: "2026-05-01"
+expires_date: "2026-05-31"
 location: "Ljubljana, Slovenia"
 work_modes:
   - "Hybrid / On-site"
