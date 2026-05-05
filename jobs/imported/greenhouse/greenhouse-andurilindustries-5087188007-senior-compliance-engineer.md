@@ -9,8 +9,8 @@ sources:
 source_url: "https://boards-api.greenhouse.io/v1/boards/andurilindustries/jobs?content=true"
 role_url: "https://boards.greenhouse.io/andurilindustries/jobs/5087188007?gh_jid=5087188007"
 apply_url: "https://boards.greenhouse.io/andurilindustries/jobs/5087188007?gh_jid=5087188007"
-posted_date: "2026-05-01"
-expires_date: "2026-05-31"
+posted_date: "2026-05-04"
+expires_date: "2026-06-03"
 location: "Costa Mesa, California, United States"
 work_modes:
   - "Hybrid / On-site"

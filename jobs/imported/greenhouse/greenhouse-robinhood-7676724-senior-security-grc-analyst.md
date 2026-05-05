@@ -9,8 +9,8 @@ sources:
 source_url: "https://boards-api.greenhouse.io/v1/boards/robinhood/jobs?content=true"
 role_url: "https://boards.greenhouse.io/robinhood/jobs/7676724?t=gh_src=&gh_jid=7676724"
 apply_url: "https://boards.greenhouse.io/robinhood/jobs/7676724?t=gh_src=&gh_jid=7676724"
-posted_date: "2026-05-01"
-expires_date: "2026-05-31"
+posted_date: "2026-05-04"
+expires_date: "2026-06-03"
 location: "Menlo Park, CA"
 work_modes:
   - "Hybrid / On-site"
